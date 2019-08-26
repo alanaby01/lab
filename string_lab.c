@@ -34,25 +34,15 @@ void strcopy(char * s1,char * s2)
     s2[i] = '\0';
     printf(" Copied String s2: %s", s2);
 }
-void strcomp(char *Str1)
-{
-  	char Str2[100];
-  	int result, i;
-  	printf("\n Please Enter the Second String :  ");
-  	scanf("%s",Str2);
-  	for(i = 0; Str1[i] == Str2[i] && Str1[i] == '\0'; i++);
-  	if(Str1[i] < Str2[i])
-   	{
-   		printf("\n str1 is Less than str2");
-	}
-	else if(Str1[i] > Str2[i])
-   	{
-   		printf("\n str2 is Less than str1");
-	}
-	else
-   	{
-   		printf("\n str1 is Equal to str2");
-	}
+int strcomp(char *s1) {
+    char *s2;
+    printf("Enter string 2:\n");
+    scanf("%s",s2);
+    while(*s1 && (*s1 == *s2)) {
+        s1++;
+        s2++;
+    }
+    return *s1-*s2;
 }
 char *replaceWord(const char *s, const char *oldW, 
                                  const char *newW) 
@@ -142,7 +132,7 @@ int main()
     }
     if(choice==4)
     {
-        strcomp(s1);
+        printf("%d",strcomp(s1));
     }
     if(choice==5)
     {
